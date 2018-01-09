@@ -1,0 +1,10 @@
+
+<h2>User List</h2>
+
+<dk-user *ngFor="user of users" [user]="user"></dk-user>
+
+<p>
+  user-list works!
+  <a routerLink="/user/5">goto user 5</a>
+</p>
+<router-outlet></router-outlet>
