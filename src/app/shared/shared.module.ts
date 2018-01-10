@@ -4,19 +4,23 @@ import {CoreModule} from '../core/core.module';
 import {FormsModule} from '@angular/forms';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {RoutingModule} from '../routing/routing.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
     CoreModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    FlexLayoutModule
   ],
   exports: [
     CoreModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    FlexLayoutModule
   ],
   declarations: [PageNotFoundComponent]
 })
 export class SharedModule { }
+

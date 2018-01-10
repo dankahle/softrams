@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import {Store} from './store/store';
 
 @Component({
   selector: 'dk-root',
@@ -8,4 +9,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'softrams';
+
 }

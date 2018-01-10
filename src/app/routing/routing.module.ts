@@ -6,6 +6,7 @@ import {UserListComponent} from '../user/user-list/user-list.component';
 import {Store} from '../store/store';
 import {UserDetailComponent} from '../user/user-detail/user-detail.component';
 import {UserEditComponent} from '../user/user-edit/user-edit.component';
+import {StoreModule} from '../store/store.module';
 
 const appRoutes: Routes = [
   {
@@ -13,19 +14,12 @@ const appRoutes: Routes = [
     component: UserListComponent,
     children: [
       {
-        component: UserDetailComponent,
-        matcher: (url: UrlSegment[]) => {
-          console.log(url);
-          return url.length === 1 && url[0].path.indexOf('mode=detail') !== -1 ? ({consumed: url}) : null;
-        }
+        path: ':id/edit',
+        component: UserEditComponent,
       },
       {
-        component: UserEditComponent,
-        matcher: (url: UrlSegment[]) => {
-          console.log(url);
-          return url.length === 1 &&
-          (url[0].path.indexOf('mode=edit') !== -1 || url[0].path.indexOf('mode=add') !== -1) ? ({consumed: url}) : null;
-        }
+        path: ':id',
+        component: UserDetailComponent,
       },
     ]
   },
@@ -39,7 +33,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    Store,
+    StoreModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -1,4 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Store} from '../../store/store';
+import {User} from '../../store/models/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'dk-user-list',
@@ -6,11 +9,17 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./user-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent {
+  users: User[];
+  selectedUser: User;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(store: Store, public router: Router) {
+    store.subscribe(state => this.users = state.users);
   }
 
+  selectUser(user: User) {
+    console.log('selectUser');
+    this.selectedUser = user;
+    this.router.navigateByUrl('/user/' + user.id);
+  }
 }

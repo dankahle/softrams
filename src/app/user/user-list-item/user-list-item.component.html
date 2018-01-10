@@ -1,5 +1,12 @@
 
-<div class="list-item">
+<div class="list-item" fxLayout="row" fxLayoutAlign="space-around center">
+  <div fxFlex="1 1 auto">{{user.name}}</div>
+  <div fxFlex="1 1 auto">{{user.age}}</div>
+  <div fxFlex="1 1 auto">{{user.sex}}</div>
+  <div fxFlex="1 1 auto">{{user.bday}}</div>
+  <div fxFlex="1 1 auto">
+    <a [routerLink]="['/user', user.id, 'edit']" (click)="$event.stopPropagation()">edit</a>
+  </div>
 
 </div>
 
